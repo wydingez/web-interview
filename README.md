@@ -59,7 +59,7 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 - 深度遍历与广度遍历
 - `nextTick`
 - 生命周期流程
-- `virtual dom`实现原理
+- `virtual dom`实现原理以及优势
 - `Proxy` vs `Object.defineProperty`
 - `vue-router`
 - `vuex`
@@ -96,3 +96,4 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
       
 ## 8. 其它知识点
 - 准备2到3个项目中遇到的一些难题，以及自己是如果解决这些问题的
+   - 1. provide / inject 替换 多层传递参数的麻烦
