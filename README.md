@@ -77,6 +77,7 @@ console.log(7);
    - 设置`CROS`：`Access-Control-Allow-Origin：*`
    - `postMessage`
 - 网络安全
+- 缓存：`强缓存` / `协商缓存`
 
 ## 5. vue相关
 - 双向绑定原理
