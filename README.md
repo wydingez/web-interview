@@ -31,9 +31,33 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 ## 3. 浏览器
 - 跨标签页通信
 - 浏览器架构
-- 浏览器下事件循环（`Event Loop`）:先执行宏任务，执行完后
+- 浏览器下事件循环（`Event Loop`）：同步执行代码，遇到宏任务，将其回调函数押入宏任务队列，遇到微任务，将其押入为任务队列。然后依次取出微任务队列中的任务执行，微任务执行完后，再依次取出宏任务队列中的任务执行。
    - 微任务`microtask jobs`：`promises` / `ajax` / `Object.observe(该方法已废弃)`
    - 宏任务`macrotask task`：`setTimeout` / `setInterval` / `script` / `IO` / `UI Rendering`
+```js
+console.log(1);
+
+setTimeout(() => {
+  console.log(2);
+  Promise.resolve().then(() => {
+    console.log(3)
+  });
+});
+
+new Promise((resolve, reject) => {
+  console.log(4)
+  resolve(5)
+}).then((data) => {
+  console.log(data);
+})
+
+setTimeout(() => {
+  console.log(6);
+})
+
+console.log(7);
+```
+   
 - 存储
 - `Web Worker`
 - `V8`垃圾回收机制
@@ -95,5 +119,6 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 - 天平找次品
       
 ## 8. 其它知识点
+- 自我介绍
 - 准备2到3个项目中遇到的一些难题，以及自己是如果解决这些问题的
    - provide / inject 替换 多层传递参数的麻烦
