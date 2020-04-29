@@ -32,7 +32,7 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 - 跨标签页通信
 - 浏览器架构
 - 浏览器下[事件循环](https://segmentfault.com/a/1190000016278115)（`Event Loop`）
-   - **流程**：同步执行代码，依次将代码放入到调用栈中执行。遇到宏任务，将其回调函数押入宏任务队列，遇到微任务，将其押入微任务队列。然后依次取出微任务队列中的任务执行，微任务执行完后，再依次取出宏任务队列中的任务执行。
+   - **流程**：执行一个宏任务，然后执行清空微任务队列，循环再执行红任务，再清微任务列表
    - 微任务`microtask jobs`：`promises` / `ajax` / `Object.observe(该方法已废弃)`
    - 宏任务`macrotask task`：`setTimeout` / `setInterval` / `script` / `IO` / `UI Rendering`
 ```js
@@ -68,6 +68,16 @@ console.log(7);
 - `http`/`https`协议
 - TCP三次握手 / TCP四次挥手
 - 输入一个网址的完整流程
+   - DNS解析
+   - TCP三次握手
+   - 发送请求，分析url，设置请求报文（头/内容）
+   - 服务器返回请求的文件html
+   - 浏览器渲染
+      - HTML解析成dom树
+      - CSS解析成style树
+      - 结合dom树和style树生成render树
+      - layout
+      - GPU painting
 - 常见状态码
 - `get` / `post`
 - `Websocket`
