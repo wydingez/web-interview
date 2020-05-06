@@ -149,8 +149,8 @@ console.log(7);
 5. `token`失效时，如何取消后面的请求操作（避免多个`token`超时提示重复错误信息）
 
 > 复试
-1. BFC
-2. CSS预处理常用的一些方法
+1. 介绍下`BFC`
+2. `CSS`预处理常用的一些方法
 3. `inline` / `inline-block` / `block` 之间的区别
 4. `instanceOf`是用来干什么的？实现原理是怎么样的？
 5. `vue`双向绑定的实现原理（`Object.definePorterty`，观察者模式，依赖收集）
