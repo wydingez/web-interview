@@ -142,23 +142,23 @@ console.log(7);
    - 压缩图片，使用更小的格式类型图片
    - 图片懒加载
    - 使用字体图库代替图标
-   - 减少网络请求（雪碧图 / svg替换图片）
-2. css居中再居中
-3. vue的data为什么要用return对象的方式
+   - 减少网络请求（雪碧图 / `svg`替换图片）
+2. `css`居中再居中
+3. `vue`的`data`为什么要用`return`对象的方式
 4. 路由权限控制如何实现
-5. token失效时，如何取消后面的请求操作（避免多个token超时提示信息）
+5. `token`失效时，如何取消后面的请求操作（避免多个`token`超时提示重复错误信息）
 
 > 复试
 1. BFC
 2. CSS预处理常用的一些方法
-3. inline / inline-block / block 之间的区别
-4. instanceOf是用来干什么的？实现原理是怎么样的？
-5. vue双向绑定的实现原理（Object.definePorterty，观察者模式，依赖收集）
-6. ES6常用的一些方法
-7. Promise的三种状态，什么情况下会进入catch状态
+3. `inline` / `inline-block` / `block` 之间的区别
+4. `instanceOf`是用来干什么的？实现原理是怎么样的？
+5. `vue`双向绑定的实现原理（`Object.definePorterty`，观察者模式，依赖收集）
+6. `ES6`常用的一些方法
+7. `Promise`的三种状态，什么情况下会进入catch状态
 8. 事件循环机制
-9. cookie / sessionStorage / localStorage，这几个能跨浏览器通信吗，跨标签通信呢？
-10. webpack的基本原理
+9. `cookie` / `sessionStorage` / `localStorage`，这几个能跨浏览器通信吗，跨标签通信呢？
+10. `webpack`的基本原理
 11. 浏览器兼容常用到的方法（js / css）
-12. vue-router常用的两种参数传递方式
-13. vue父子组件传递参数的方式（除了常用的props和$emit，还有？）
+12. `vue-router`常用的两种参数传递方式
+13. `vue`父子组件传递参数的方式（除了常用的`props`和`$emit`，还有？）
