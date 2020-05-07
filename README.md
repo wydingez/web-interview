@@ -150,8 +150,36 @@ console.log(7);
 
 > 复试
 1. 介绍下`BFC`
+   - 介绍：块级格式化上下文，是一个独立的渲染环境，让处于BFC内部元素与外部的元素相互隔离，使内外元素的定位不会相互影响
+   - 触发条件
+      - 根元素
+      - position：absolute / fixed
+      - display：inline-block / table
+      - float元素
+      - overflow != visible
+   - 规则
+      - 属于同一个BFC的两个相邻Box垂直排列
+      - 属于同一个BFC的两个相邻Box的margin会发生重叠
+      - BFC区域不会与float区域重叠
+      - 计算BFC高度时，浮动子元素也会参与计算
+      - 文字层不会被浮动层覆盖，环绕于周围
+   - 引用
+      - 阻止margin重叠
+      - 可以包含浮动元素————清除内部浮动的原理是让两个div都位于同一个BFC区域之中
+      - 自适应两栏布局
+      - 可以阻止元素被浮动元素覆盖
 2. `CSS`预处理常用的一些方法
 3. `inline` / `inline-block` / `block` 之间的区别
+   - `inline`
+      - 不会独占一行，多个相邻的行内元素在一行，只有在一行排列不下时，才会换新的一行，宽度随元素内容而变化
+      - width和height设置无效
+      - margin-top / margin-bottom设置无效
+   - `block`
+      - 单独占一行，多个block元素会新起一行
+      - 可以设置widht 和 height，但是即使设置了宽度，也还会是独占一行
+      - 可以设置margin 和 padding
+   - `inline-block`
+      - 同时具备block的宽高特性和inline的同行特性
 4. clientHeight / scrollHeight / offsetHeight / offsetTop / scrollTop
    - `clientHeight` 网页可见区域高度（包括padding，但不包括border、水平滚动条、margin元素的高度）
    - `scrollHeight` 网页正文全文高度
@@ -163,6 +191,19 @@ console.log(7);
       var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
       ```
 5. `instanceOf`是用来干什么的？实现原理是怎么样的？
+   - 用来检查某个对象是否为另外一个对象的实例
+   - 实现
+   ```javascript
+   function instance_of (L, R) {
+     var o = R.prototype
+     L = L.__proto__
+     while(true) {
+       if (L === null) return false;
+       if (O === L) return true;
+       L = L.__proto__
+     }
+   }
+   ```
 6. `vue`双向绑定的实现原理（`Object.definePorterty`，观察者模式，依赖收集）
 7. `ES6`常用的一些方法
 8. `Promise`的三种状态，什么情况下会进入catch状态
