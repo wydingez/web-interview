@@ -152,14 +152,44 @@ console.log(7);
 1. 介绍下`BFC`
 2. `CSS`预处理常用的一些方法
 3. `inline` / `inline-block` / `block` 之间的区别
-4. `instanceOf`是用来干什么的？实现原理是怎么样的？
-5. `vue`双向绑定的实现原理（`Object.definePorterty`，观察者模式，依赖收集）
-6. `ES6`常用的一些方法
-7. `Promise`的三种状态，什么情况下会进入catch状态
-8. 事件循环机制
-9. `cookie` / `sessionStorage` / `localStorage`，这几个能跨浏览器通信吗，跨标签通信呢？
-10. `webpack`的基本原理
-11. 浏览器兼容常用到的方法（js / css）
-12. `vue-router`常用的两种参数传递方式
-13. `vue`父子组件传递参数的方式（除了常用的`props`和`$emit`，还有？）
-14. 常用的状态码
+4. clientHeight / scrollHeight / offsetHeight / offsetTop / scrollTop
+   - `clientHeight` 网页可见区域高度（包括padding，但不包括border、水平滚动条、margin元素的高度）
+   - `scrollHeight` 网页正文全文高度
+   - `offsetHeight` 网页可见区域高度（包括padding、border、水平滚动条，但不包括margin元素的高度）
+   - `offsetTop` 距离最近有定位父级元素的距离 
+   - `scrollTop` 有滚动条时，滚动条向下滚动的距离
+      - 设置滚动条的距离的兼容性方法
+      ```javascript
+      var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+      ```
+5. `instanceOf`是用来干什么的？实现原理是怎么样的？
+6. `vue`双向绑定的实现原理（`Object.definePorterty`，观察者模式，依赖收集）
+7. `ES6`常用的一些方法
+8. `Promise`的三种状态，什么情况下会进入catch状态
+9. 事件循环机制
+10. `cookie` / `sessionStorage` / `localStorage`，这几个能跨浏览器通信吗，跨标签通信呢？
+11. `webpack`的基本原理
+12. 浏览器兼容常用到的方法（js / css）
+13. `vue-router`常用的两种参数传递方式
+   - `query`
+   - `params`
+14. `vue`父子组件传递参数的方式（除了常用的`props`和`$emit`，还有？）
+   - `props` / `$emit`
+   - `vuex` / `eventBus`
+   - `$root` / `$parent` / `$children`
+   - `attrs` / `listeners`
+   - `provide` / `inject`
+   - `$dispatch`
+   - `sync`
+15. 常用的状态码
+   - `200 OK` 请求成功并正常返回
+   - `204 No Content` 请求成功但无内容返回
+   - `301 Moved Permanently` 永久性重定向
+   - `302 Found` 临时性重定向
+   - `304 Not Modified` Get请求成功，文件内容未发生变化
+   - `400 Bad Request` 请求报文中存在语法错误
+   - `401 Unauthorized` 未登录，没有权限
+   - `403 Forbidden` 没有权限，禁止访问
+   - `404 Not Found` 没有找到请求资源
+   - `500 Inter Server Error` 服务端请求执行时发生错误
+   - `503 Server Unavailable` 服务超负荷运转或者正在停机维护
