@@ -35,30 +35,30 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
    - **流程**：执行一个宏任务，然后执行清空微任务队列，循环再执行红任务，再清微任务列表
    - 微任务`microtask jobs`：`promises` / `ajax` / `Object.observe(该方法已废弃)`
    - 宏任务`macrotask task`：`setTimeout` / `setInterval` / `script` / `IO` / `UI Rendering`
-```js
-console.log(1);
+	```js
+	console.log(1);
 
-setTimeout(() => {
-  console.log(2);
-  Promise.resolve().then(() => {
-    console.log(3)
-  });
-});
+	setTimeout(() => {
+	  console.log(2);
+	  Promise.resolve().then(() => {
+		console.log(3)
+	  });
+	});
 
-new Promise((resolve, reject) => {
-  console.log(4)
-  resolve(5)
-}).then((data) => {
-  console.log(data);
-})
+	new Promise((resolve, reject) => {
+	  console.log(4)
+	  resolve(5)
+	}).then((data) => {
+	  console.log(data);
+	})
 
-setTimeout(() => {
-  console.log(6);
-})
+	setTimeout(() => {
+	  console.log(6);
+	})
 
-console.log(7);
-```
-   
+	console.log(7);
+	```
+
 - 存储
 - `Web Worker`
 - `V8`垃圾回收机制
