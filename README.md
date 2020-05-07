@@ -212,25 +212,25 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 11. `webpack`的基本原理
 12. 浏览器兼容常用到的方法（js / css）
 13. `vue-router`常用的两种参数传递方式
-   - `query`
-   - `params`
+      - `query`
+      - `params`
 14. `vue`父子组件传递参数的方式（除了常用的`props`和`$emit`，还有？）
-   - `props` / `$emit`
-   - `vuex` / `eventBus`
-   - `$root` / `$parent` / `$children`
-   - `attrs` / `listeners`
-   - `provide` / `inject`
-   - `$dispatch`
-   - `sync`
+      - `props` / `$emit`
+      - `vuex` / `eventBus`
+      - `$root` / `$parent` / `$children`
+      - `attrs` / `listeners`
+      - `provide` / `inject`
+      - `$dispatch`
+      - `sync`
 15. 常用的状态码
-   - `200 OK` 请求成功并正常返回
-   - `204 No Content` 请求成功但无内容返回
-   - `301 Moved Permanently` 永久性重定向
-   - `302 Found` 临时性重定向
-   - `304 Not Modified` Get请求成功，文件内容未发生变化
-   - `400 Bad Request` 请求报文中存在语法错误
-   - `401 Unauthorized` 未登录，没有权限
-   - `403 Forbidden` 没有权限，禁止访问
-   - `404 Not Found` 没有找到请求资源
-   - `500 Inter Server Error` 服务端请求执行时发生错误
-   - `503 Server Unavailable` 服务超负荷运转或者正在停机维护
+      - `200 OK` 请求成功并正常返回
+      - `204 No Content` 请求成功但无内容返回
+      - `301 Moved Permanently` 永久性重定向
+      - `302 Found` 临时性重定向
+      - `304 Not Modified` Get请求成功，文件内容未发生变化
+      - `400 Bad Request` 请求报文中存在语法错误
+      - `401 Unauthorized` 未登录，没有权限
+      - `403 Forbidden` 没有权限，禁止访问
+      - `404 Not Found` 没有找到请求资源
+      - `500 Inter Server Error` 服务端请求执行时发生错误
+      - `503 Server Unavailable` 服务超负荷运转或者正在停机维护
