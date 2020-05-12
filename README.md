@@ -18,6 +18,28 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
    - amd: `require` / `defined`
 - script 的引入方式
 - 类型转换 / 类型判断
+- 遍历对象的几种方式 & for in & for of
+```javascript
+var obj = {a: 1, b: 2}
+var arr = [3, 5, 9]
+Object.keys(obj).forEach(key => ...)
+Object.values(obj).forEach(value => ...)
+for (let [key, value] in Object.entries(obj)) {...}
+
+// for in  =>  遍历数组 / 对象
+for (var i in arr) {
+  console.log(i)	// 0 1 2
+}
+
+for (var i in obj) {
+  console.log(i)	// a b
+}
+
+// for of  =>  遍历数组
+for (var j of arr) {
+  console.log(j)	// 3 5 0
+}
+```
 
 ## 2. css高频知识点
 - 盒模型
