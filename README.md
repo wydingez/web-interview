@@ -88,7 +88,7 @@ for (var j of arr) {
 - 内存泄露
 
 ## 4. 计算机网络相关知识点
-- `http`/`https`协议
+- `http` / `https`协议
 - TCP三次握手 / TCP四次挥手
 - 输入一个网址的完整流程
    - DNS解析
