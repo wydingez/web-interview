@@ -5,7 +5,7 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 - 原型 / 构造函数 / 实例
 - 闭包
 - 原型/原型链
-- 手写代码部分 （`new` / `promises` / `debounce` / `throttle`）
+- 手写代码部分 （`new` / `promises` / `debounce` / `throttle` / `instanceOf`）
 - 函数柯里化
 - 继承
 - 复用
