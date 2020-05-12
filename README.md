@@ -18,7 +18,7 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
    - amd: `require` / `defined`
 - script 的引入方式
 - 类型转换 / 类型判断
-- 遍历对象的几种方式 & for in & for of
+- 遍历对象的几种方式 & `for in` & `for of`
 ```javascript
 var obj = {a: 1, b: 2}
 var arr = [3, 5, 9]
@@ -203,7 +203,7 @@ for (var j of arr) {
       - 可以设置margin 和 padding
    - `inline-block`
       - 同时具备block的宽高特性和inline的同行特性
-4. clientHeight / scrollHeight / offsetHeight / offsetTop / scrollTop
+4. `clientHeight` / `scrollHeight` / `offsetHeight` / `offsetTop` / `scrollTop`
    - `clientHeight` 网页可见区域高度（包括padding，但不包括border、水平滚动条、margin元素的高度）
    - `scrollHeight` 网页正文全文高度
    - `offsetHeight` 网页可见区域高度（包括padding、border、水平滚动条，但不包括margin元素的高度）
