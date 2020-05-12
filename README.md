@@ -22,6 +22,7 @@ web前端面试知识点，便于自己复习使用，[参考文章](https://jue
 ```javascript
 var obj = {a: 1, b: 2}
 var arr = [3, 5, 9]
+
 Object.keys(obj).forEach(key => ...)
 Object.values(obj).forEach(value => ...)
 for (let [key, value] in Object.entries(obj)) {...}
