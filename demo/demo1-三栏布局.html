@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo1-三栏布局</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrapper>div {
+      min-height: 200px;
+    }
+
+    h4 {
+      padding: 20px;
+    }
+
+    .left,.right {
+      width: 300px;
+    }
+
+    .left,.right,.center {
+      font-size: 32px;
+      color: white;
+      line-height: 200px;
+      text-align: center;
+    }
+
+    .left {
+      background: red;
+    }
+
+    .right {
+      background: blue;
+    }
+
+    .center {
+      background: blueviolet;
+    }
+
+    /* float */
+    .float .left {
+      float: left;
+    }
+
+    .float .right {
+      float: right;
+    }
+
+    /* absolute */
+    .absolute {
+      position: relative;
+      height: 262px;
+    }
+
+    .absolute .center {
+      position: absolute;
+      left: 300px;
+      right: 300px;
+    }
+
+    .absolute .left {
+      position: absolute;
+      left: 0;
+    }
+
+    .absolute .right {
+      position: absolute;
+      right: 0;
+    }
+
+    /* flex */
+    .flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex .center {
+      flex: 1;
+    }
+
+    .flex h4 {
+      flex-basis: 100%;
+    }
+
+    /* table */
+    .table {
+      display: table;
+      width: 100%;
+    }
+
+    .table h4 {
+      display: table-caption;
+    }
+
+    .table .center,.left,.right{
+      display: table-cell;
+    }
+
+    /* grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 300px auto 300px;
+    }
+  </style>
+</head>
+<body>
+  <section class="float wrapper">
+    <h4>float</h4>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+    <div class="center">Center</div>
+  </section>
+
+  <section class="absolute wrapper">
+    <h4>absolute</h4>
+    <div class="left">Left</div>
+    <div class="center">Center</div>
+    <div class="right">Right</div>
+  </section>
+
+  <section class="flex wrapper">
+    <h4>flex</h4>
+    <div class="left">Left</div>
+    <div class="center">Center</div>
+    <div class="right">Right</div>
+  </section>
+
+  <section class="table wrapper">
+    <h4>table</h4>
+    <div class="left">Left</div>
+    <div class="center">Center</div>
+    <div class="right">Right</div>
+  </section>
+
+  <h4>grid</h4>
+  <section class="grid wrapper">
+    <div class="left">Left</div>
+    <div class="center">Center</div>
+    <div class="right">Right</div>
+  </section>
+</body>
+</html>
