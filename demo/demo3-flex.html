@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .A,.B,.C {
+      display: inline-block;
+      height: 100vw;
+    }
+
+    .A {
+      width: 200px;
+      background: red;
+      flex: 0 0 200px;
+    }
+
+    .B {
+      min-width: 300px;
+      background: blueviolet;
+      flex: 1 1 100px;
+    }
+
+    .C {
+      min-width: 200px;
+      background: greenyellow;
+      flex: 1 1 auto;
+    }
+
+    .wrapper {
+      display: flex;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="A">A</div><div class="B">B</div><div class="C">C</div>
+  </div>
+</body>
+</html>

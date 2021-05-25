@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <!-- TODO -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background: #ddd;
+      }
+
+      .wrapper {
+        margin: 25px;
+        background: white;
+        border-radius: 10px;
+        display: flex;
+      }
+
+      .wrapper-item-cell {
+        flex: 1;
+        min-height: 500px;
+        margin: 15px;
+      }
+
+      .wrapper-item-cell-header {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        margin: 15px 20px;
+      }
+
+      .wrapper-item-cell-content {
+        text-align: left;
+        padding: 10px;
+        margin: 15px 5px;
+      }
+
+      .content-item-cell {
+        margin: 20px 10px;
+        padding-left: 10px;
+        border-left: 1px solid #ddd;
+      }
+
+      .today-active {
+        border: 1px solid rgb(66, 143, 239);
+        border-radius: 10px;
+      }
+
+      .today-active .wrapper-item-cell-header {
+        border-bottom-color: rgb(66, 143, 239)
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TODO -->
+    <div id="app">
+    </div>
+
+    <script>
+      //  一道初试面试题
+      
+      /**
+       * 根据提供的数据，设计并绘制一个周视图的日历，要求：
+       * 1. 动态布局，一周七天，根据浏览器宽度自适应每一列的宽度，表头为星期 + 日期（格式：月份（两位）/日期（两位）），每周从周日开始；
+       * 2. 任务列表按完成状态分组，未按成在上，已完成在下并加 30% 透明度；按时间正序排列；
+       * 3. 高亮今天所在的列，文字和边框使用 rgb(66, 143, 239)；
+       *
+       * 注意：
+       * 1. 请使用题目提供数据动态渲染页面内容，否则视为无效答卷；
+       * 2. 可以修改日期为本周对应日期；
+       * 3. 请勿标新立异，应按题目要求完成周视图，而非月历或其他形式；
+       * 4. 使用 Vue/React 作答的，禁止使用 ant-design/element-ui 等类似的前端组件库；
+       */
+      var data = [
+        {
+          date: '2021-01-03',
+          tasks: [{ title: '待办事项1', datetime: '2021-01-03 13:28:11', done: false }],
+        },
+        { date: '2021-01-04', tasks: [] },
+        {
+          date: '2021-01-05',
+          tasks: [{ title: '待办事项2', datetime: '2021-01-05 01:14:12', done: false }],
+        },
+        {
+          date: '2021-01-06',
+          tasks: [
+            { title: '待办事项3', datetime: '2021-01-06 09:50:47', done: true },
+            { title: '待办事项4', datetime: '2021-01-06 10:48:33', done: false },
+            { title: '待办事项5', datetime: '2021-01-06 11:00:27', done: false },
+          ],
+        },
+        { date: '2021-01-07', tasks: [] },
+        {
+          date: '2021-01-08',
+          tasks: [
+            { title: '待办事项6', datetime: '2021-01-08 08:34:12', done: false },
+            { title: '待办事项7', datetime: '2021-01-08 12:36:33', done: true },
+          ],
+        },
+        {
+          date: '2021-01-09',
+          tasks: [{ title: '待办事项8', datetime: '2021-01-09 13:01:00', done: false }],
+        },
+      ];
+
+      new Vue({
+        el: '#app',
+        data: {
+          tasks: data,
+          today: '2021-01-05'
+        },
+        computed: {
+          days () {
+            return this.tasks.map(item => {
+              let date = new Date(item.date)
+              let year = date.getFullYear()
+              let month = date.getMonth() + 1
+              let day = date.getDate()
+              let week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()]
+
+              let notCompltedTask = item.tasks.filter(i => !i.done)
+              let compltedTask = item.tasks.filter(i => i.done)
+
+              function sortDate (dates) {
+                return dates.sort((a, b) => {
+                  if (a === b) return 0
+                  else if (new Date(a.datetime) > new Date(b.datetime)) return -1
+                  else return 1
+                })
+              }
+
+              console.log(notCompltedTask.concat(compltedTask))
+
+              return {
+                date: item.date,
+                dateStr: `${year}/${month  < 10 ? ('0' + month) : month}/${day < 10 ? ('0' + day) : day}`,
+                week,
+                tasks: sortDate(notCompltedTask).concat(sortDate(compltedTask))
+              }
+            })
+          }
+        },
+        render(h){
+          let wrapperItem = this.days.map(d => {
+            return h('div', {
+              class: {
+                'wrapper-item-cell': true,
+                'today-active': this.today === d.date
+              }
+            }, [
+              h('div', {
+                attrs: {
+                  class: 'wrapper-item-cell-header'
+                }
+              }, [
+                h('div', {
+                  attrs: {
+                    class: 'header-item-top'
+                  }
+                }, d.dateStr),
+                h('div', {
+                  attrs: {
+                    class: 'header-item-bottom'
+                  }
+                }, d.week)
+              ]),
+
+              h('div', {
+                attrs: {
+                  class: 'wrapper-item-cell-content'
+                }
+              }, d.tasks.map(t => {
+                return h('div', {
+                  attrs: {
+                    class: 'content-item-cell'
+                  }
+                }, [
+                  h('input', {
+                    attrs: {
+                      type: 'checkbox',
+                      checked: t.done
+                    }
+                  }),
+                  h('span', t.title)
+                ])
+              }))
+            ])
+          })
+
+          return h('div', {
+            attrs: {
+              class: 'wrapper'
+            }
+          }, wrapperItem)
+        }
+      })
+    </script>
+  </body>
+</html>
