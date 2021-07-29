@@ -189,3 +189,14 @@ for (var j of arr) {
    - 插入与删除节点
 - 天平找次品
       
+## 8. 其它知识点
+### 微信h5页面下，假如是长页的话用这段代码，可以在用户滑动页面时自动隐藏底部栏。
+```css
+.page {
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100vw;
+    height:100vh;
+}
+```
