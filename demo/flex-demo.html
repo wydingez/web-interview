@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex demo test</title>
+  <style>
+    /* box-sizing: border-box */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background: #448aff;
+      height: 64px;
+      line-height: 64px;
+      font-size: 24px;
+      padding: 0 12px;
+      color: white;
+    }
+
+    main {
+      background: #FEAC5E;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      flex: 1 1 0%;
+      display: flex;
+    }
+
+    main .left {
+      flex: 0 0 220px;
+      background:white;
+      padding: 12px;
+      box-sizing: border-box;
+    }
+
+    main .right {
+      width: 100%;
+      margin: 10px;
+      background-color: white;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main .right .another-block {
+       background-color: darkred;
+     }
+
+    main .right .flex-block {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+
+    main .right .flex-block .block {
+      border: 1px solid black;
+      background:gainsboro;
+      flex: 1 1 200px;
+      margin: 10px 10px 10px 0;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    footer {
+      background-color: burlywood;
+      height: 64px;
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>this is header</header>
+    <main>
+      <div class="left">left</div>
+      <div class="right">
+        <div class="another-block">xxxx</div>
+        <div class="flex-block">
+          <div class="block" style="order: 10">1</div>
+          <div class="block" style="order: 2">2</div>
+          <div class="block">3</div>
+          <div class="block">4</div>
+          <div class="block">5</div>
+          <div class="block">6</div>
+          <div class="block">7</div>
+          <div class="block">8</div>
+          <div class="block">9</div>
+        </div>
+      </div>
+    </main>
+    <footer>this is footer</footer>
+  </div>
+</body>
+</html>
