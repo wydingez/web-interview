@@ -1,104 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flex Demo</title>
-  <style>
-    /* box-sizing: border-box */
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Demo</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.min.js"></script>
+    <style>
+      /* box-sizing: border-box */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
 
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
 
-    header {
-      background: #448aff;
-      height: 64px;
-      line-height: 64px;
-      font-size: 24px;
-      padding: 0 12px;
-      color: white;
-    }
+      header {
+        background: #448aff;
+        height: 64px;
+        line-height: 64px;
+        font-size: 24px;
+        padding: 0 12px;
+        color: white;
+        display: flex;
+        align-items: center;
+      }
 
-    main {
-      background: #FEAC5E;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      flex: 1 1 0%;
-      display: flex;
-    }
+      header .expand-icon {
+        margin-right: 12px;
+        fill: currentColor;
+        color: #ddd;
+        cursor: pointer;
+      }
 
-    main .left {
-      flex: 0 0 220px;
-      background:white;
-      padding: 12px;
-      box-sizing: border-box;
-    }
+      main {
+        background: #feac5e; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        flex: 1 1 0%;
+        display: flex;
+      }
 
-    main .right {
-      width: 100%;
-      margin: 10px;
-      background-color: white;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-    }
+      main .left {
+        flex: 0 0 200px;
+        width: 200px;
+        background: white;
+        padding: 12px;
+        box-sizing: border-box;
+      }
 
-    main .right .another-block {
-       background-color: darkred;
-     }
+      main .right {
+        width: 100%;
+        margin: 10px;
+        background-color: white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
 
-    main .right .flex-block {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
+      main .right .another-block {
+        background-color: darkred;
+      }
 
-    main .right .flex-block .block {
-      border: 1px solid black;
-      background:gainsboro;
-      flex: 1 1 200px;
-      margin: 10px 10px 10px 0;
-      padding: 10px;
-      box-sizing: border-box;
-    }
+      main .right .flex-block {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-    footer {
-      background-color: burlywood;
-      height: 64px;
-      padding: 12px;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <header>this is header</header>
-    <main>
-      <div class="left">left</div>
-      <div class="right">
-        <div class="another-block">xxxx</div>
-        <div class="flex-block">
-          <div class="block" style="order: 10">1</div>
-          <div class="block" style="order: 2">2</div>
-          <div class="block">3</div>
-          <div class="block">4</div>
-          <div class="block">5</div>
-          <div class="block">6</div>
-          <div class="block">7</div>
-          <div class="block">8</div>
-          <div class="block">9</div>
-        </div>
+      main .right .flex-block .block {
+        border: 1px solid black;
+        background: gainsboro;
+        flex: 1 1 200px;
+        margin: 10px 10px 10px 0;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      footer {
+        background-color: burlywood;
+        height: 64px;
+        padding: 12px;
+      }
+
+      @media (max-width: 768px) {
+        main .left {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper">
+        <header>
+          <svg v-if="!isExpand" @click="doToggle" class="expand-icon" t="1627540918249" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1977" width="32" height="64"><path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8z m-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56z m504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8z m0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519c4.5-3.5 4.5-10.3 0-13.9L142.4 381.9c-5.8-4.6-14.4-0.5-14.4 6.9v246.3c0 7.4 8.5 11.6 14.4 7z" p-id="1978"></path></svg>
+          <svg v-if="isExpand" @click="doToggle" class="expand-icon" t="1627542202652" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2295" width="32" height="64"><path d="M911.2 668 400.8 668c-24.8 0-44.8-21.6-44.8-48s20-48 44.8-48l510.4 0c24.8 0 44.8 21.6 44.8 48S936 668 911.2 668zM911.2 444 400.8 444c-24.8 0-44.8-21.6-44.8-48s20-48 44.8-48l510.4 0c24.8 0 44.8 21.6 44.8 48S936 444 911.2 444zM908 228l-784 0c-26.4 0-48-21.6-48-48 0-26.4 21.6-48 48-48l784 0c26.4 0 48 21.6 48 48C956 206.4 934.4 228 908 228zM300 668l-224-160 224-160L300 668zM124 788l784 0c26.4 0 48 21.6 48 48s-21.6 48-48 48l-784 0c-26.4 0-48-21.6-48-48S97.6 788 124 788z" p-id="2296"></path></svg>
+          this is header
+        </header>
+        <main>
+          <div class="left" v-if="isExpand">left</div>
+          <div class="right">
+            <div class="another-block">xxxx</div>
+            <div class="flex-block">
+              <div class="block" style="order: 10">1</div>
+              <div class="block" style="order: 2">2</div>
+              <div class="block">3</div>
+              <div class="block">4</div>
+              <div class="block">5</div>
+              <div class="block">6</div>
+              <div class="block">7</div>
+              <div class="block">8</div>
+              <div class="block">9</div>
+            </div>
+          </div>
+        </main>
+        <footer>this is footer</footer>
       </div>
-    </main>
-    <footer>this is footer</footer>
-  </div>
-</body>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+      data: {
+        isExpand: true
+      },
+
+      methods: {
+        doToggle () {
+          this.isExpand = !this.isExpand
+        }
+      }
+    });
+  </script>
 </html>
