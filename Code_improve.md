@@ -39,4 +39,4 @@ this.updateState = field => ev => {
 
 ## 3. 卡片弹出动画
 参考链接
-[让我们来写一个卡片弹出动画](https://juejin.cn/post/6844903831751524360)
+- [让我们来写一个卡片弹出动画](https://juejin.cn/post/6844903831751524360)
