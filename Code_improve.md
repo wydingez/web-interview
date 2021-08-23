@@ -30,3 +30,5 @@ this.updateState = field => ev => {
   />
 </fieldset>
 ```
+
+## 2. [vue之keep-alive的按需缓存](https://docs.xwhx.top/vue-h5-template/optimization/keep-alive.html)
