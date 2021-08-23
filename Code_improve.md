@@ -40,3 +40,8 @@ this.updateState = field => ev => {
 ## 3. 卡片弹出动画 - FLIP
 参考链接
 - [让我们来写一个卡片弹出动画](https://juejin.cn/post/6844903831751524360)
+
+## 4. 代码技巧
+参考链接
+- [灵活运用CSS开发技巧](https://juejin.cn/post/6844903926110617613)
+- [灵活运用JS开发技巧](https://juejin.cn/post/6844903838449664013)
