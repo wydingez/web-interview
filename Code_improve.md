@@ -36,3 +36,7 @@ this.updateState = field => ev => {
 - [vue-page-stack](https://github.com/hezhongfeng/vue-page-stack)
 - [vue 路由 按需 keep-alive](https://juejin.cn/post/6844903846901186574)
 - [设置 keep-alive 按需缓存](https://docs.xwhx.top/vue-h5-template/optimization/keep-alive.html#%E8%AE%BE%E7%BD%AE-keep-alive-%E6%8C%89%E9%9C%80%E7%BC%93%E5%AD%98)
+
+## 3. 卡片弹出动画
+参考链接
+[让我们来写一个卡片弹出动画](https://juejin.cn/post/6844903831751524360)
